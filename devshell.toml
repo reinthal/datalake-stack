@@ -1,0 +1,42 @@
+
+[[commands]]
+
+help = "Get Coffee ☕"
+name = "coffee"
+command = "echo '☕'"
+
+[[commands]]
+
+help = "Deploy 🔨"
+name = "deploy"
+
+command = '''
+echo "Deploying TODO: 🔨"
+
+'''
+
+[[commands]]
+
+help = "Validate"
+name = "validate"
+command = '''
+export REPO_ROOT=$(git rev-parse --show-toplevel)
+exec sh -c $REPO_ROOT/scripts/validate.sh
+'''
+
+[[commands]]
+
+package = "fluxcd"
+
+[devshell]
+motd = '''
+{bold}{150} 🥞 A Modern Big Datalakehouse Stack 🥞 {reset}
+$(type -p menu &>/dev/null && menu)
+'''
+packages = [
+  "yq",
+  "kubeconform",
+  "kustomize",
+  "jq",
+]
+
