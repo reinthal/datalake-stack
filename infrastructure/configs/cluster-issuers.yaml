@@ -14,8 +14,8 @@ spec:
           cloudflare:
             email: accounts@reinthal.me
             apiTokenSecretRef:
-              name: cf-token-secret
-              key: cf-token
+              name: cloudflare-token-secret
+              key: token
         selector:
           dnsZones:
             - "reinthal.cc"
