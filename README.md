@@ -12,8 +12,8 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] crds
 - [x] kubeseal
 - [x] weave-gitops
-- [ ] traefik-proxy
-- [ ] reflector
+- [x] traefik-proxy
+- [x] reflector
 - [ ] rancher (update)
 - [ ] longhorn (update)
 - [ ] configs
