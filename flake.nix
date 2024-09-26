@@ -3,7 +3,7 @@
 
   inputs.devshell.url = "github:numtide/devshell";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-compat = {
     url = "github:edolstra/flake-compat";
     flake = false;

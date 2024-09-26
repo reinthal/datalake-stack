@@ -14,7 +14,26 @@ command = '''
 echo "Deploying TODO: 🔨"
 
 '''
+[[commands]]
 
+help = "Pre-flight boostrap Checks."
+name ="check"
+command = '''
+flux check --pre
+'''
+[[commands]]
+
+help = " ☢ Bootstrap Cluster ☢"
+name = "bootstrap"
+command = '''
+flux bootstrap github \
+    --context=staging \
+    --owner=${GITHUB_USER} \
+    --repository=${GITHUB_REPO} \
+    --branch=main \
+    --personal \
+    --path=clusters/staging
+'''
 [[commands]]
 
 help = "Validate"
