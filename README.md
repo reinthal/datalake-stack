@@ -9,9 +9,9 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] Disable apps deployment
 - [ ] Add infrastructure apps
 - [x] Networking
-- [ ] crds
+- [x] crds
 - [x] kubeseal
-- [ ] weave-gitops
+- [x] weave-gitops
 - [ ] traefik-proxy
 - [ ] reflector
 - [ ] rancher (update)
