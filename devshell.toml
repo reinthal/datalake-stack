@@ -11,8 +11,9 @@ help = "Deploy 🔨"
 name = "deploy"
 
 command = '''
-echo "Deploying TODO: 🔨"
-
+echo "It's just git push!🔨 Enjoying fluxcd?"
+validate
+git push origin HEAD
 '''
 [[commands]]
 
@@ -34,6 +35,10 @@ flux bootstrap github \
     --personal \
     --path=clusters/staging
 '''
+[[commands]]
+
+package = "kind"
+
 [[commands]]
 
 help = "Validate"
