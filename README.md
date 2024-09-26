@@ -1,16 +1,10 @@
-# flux2-kustomize-helm-example
+# Modern Big Data Lakehouse Stack
 
 [![test](https://github.com/fluxcd/flux2-kustomize-helm-example/workflows/test/badge.svg)](https://github.com/fluxcd/flux2-kustomize-helm-example/actions)
 [![e2e](https://github.com/fluxcd/flux2-kustomize-helm-example/workflows/e2e/badge.svg)](https://github.com/fluxcd/flux2-kustomize-helm-example/actions)
-[![license](https://img.shields.io/github/license/fluxcd/flux2-kustomize-helm-example.svg)](https://github.com/fluxcd/flux2-kustomize-helm-example/blob/main/LICENSE)
 
-For this example we assume a scenario with two clusters: staging and production.
-The end goal is to leverage Flux and Kustomize to manage both clusters while minimizing duplicated declarations.
 
-We will configure Flux to install, test and upgrade a demo app using
-`HelmRepository` and `HelmRelease` custom resources.
-Flux will monitor the Helm repository, and it will automatically
-upgrade the Helm releases to their latest chart version based on semver ranges.
+Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s.
 
 ## Prerequisites
 
