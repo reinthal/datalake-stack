@@ -51,7 +51,9 @@ help = "Validate"
 name = "validate"
 command = '''
 export REPO_ROOT=$(git rev-parse --show-toplevel)
-exec sh -c $REPO_ROOT/scripts/validate.sh
+pushd $REPO_ROOT >/dev/null
+exec sh -c ./scripts/validate.sh
+popd
 '''
 
 [[commands]]
