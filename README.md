@@ -6,6 +6,18 @@
 
 Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s.
 
+- [x] Disable apps deployment
+- [ ] Add infrastructure apps
+- [ ] Networking
+- [ ] crds
+- [ ] kubeseal
+- [ ] weave-gitops
+- [ ] traefik-proxy
+- [ ] reflector
+- [ ] rancher (update)
+- [ ] longhorn (update)
+- [ ] configs
+
 ## Prerequisites
 
 You will need a Kubernetes cluster version 1.28 or newer.
