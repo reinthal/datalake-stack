@@ -7,6 +7,12 @@ command = "echo '☕'"
 
 [[commands]]
 
+help = " 🌲 Get Fluxcd Rolling Logs 🪵"
+name = "logs"
+command = "flux logs -f"
+
+[[commands]]
+
 help = "Deploy 🔨"
 name = "deploy"
 
