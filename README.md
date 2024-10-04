@@ -1,7 +1,6 @@
 # Modern Big Data Lakehouse Stack
 
-[![test](https://github.com/fluxcd/flux2-kustomize-helm-example/workflows/test/badge.svg)](https://github.com/fluxcd/flux2-kustomize-helm-example/actions)
-[![e2e](https://github.com/fluxcd/flux2-kustomize-helm-example/workflows/e2e/badge.svg)](https://github.com/fluxcd/flux2-kustomize-helm-example/actions)
+[![test](https://github.com/reinthal/datalake-stack/actions/workflows/test.yaml/badge.svg)](https://github.com/reinthal/datalake-stack/actions/workflows/test.yaml)
 
 
 Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s.
@@ -17,6 +16,13 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] longhorn (update)
 - [x] cf-token-secret-sealed
 - [ ] 1 ingress controller
+
+## Todo 2.0
+
+- [ ] dagster
+- [ ] Minio
+- [ ] polaris
+- [ ] Dask
 - [ ] configs
 
 ## Prerequisites
