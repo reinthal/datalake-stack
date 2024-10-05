@@ -6,7 +6,7 @@
 Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s.
 
 - [x] Disable apps deployment
-- [ ] Add infrastructure apps
+- [x] Add infrastructure apps
 - [x] Networking
 - [x] crds
 - [x] kubeseal
@@ -19,6 +19,7 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 
 ## Todo 2.0
 - [x] Traefik ingress
+- [x] reconfigure traefik password
 - [x] Minio console ingress
 - [ ] Minio operator ingres
 - [ ] dagster
