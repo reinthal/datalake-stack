@@ -1,6 +1,10 @@
 
 [[commands]]
 
+package = "sops"
+
+[[commands]]
+
 help = "Get Coffee ☕"
 name = "coffee"
 command = "echo '☕'"
