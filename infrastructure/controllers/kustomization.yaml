@@ -6,3 +6,4 @@ resources:
   - traefik-proxy.yaml
   - reflector.yaml
   - longhorn.yaml
+  - weave-gitops.yaml
