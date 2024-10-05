@@ -15,13 +15,13 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] reflector
 - [x] longhorn (update)
 - [x] cf-token-secret-sealed
-- [ ] 1 ingress controller
+- [x] 1 ingress controller
 
 ## Todo 2.0
 
 - [ ] dagster
 - [ ] Minio
-- [ ] polaris
+- [x] polaris, doing polaris outside of kubernetes to start with.
 - [ ] Dask
 - [ ] configs
 
@@ -58,7 +58,7 @@ The Git repository contains the following top directories:
 ```
 ├── apps
 │   ├── base
-│   ├── production 
+│   ├── production
 │   └── staging
 ├── infrastructure
 │   ├── configs
@@ -282,7 +282,7 @@ spec:
   wait: true
 ```
 
-Note that with `path: ./apps/staging` we configure Flux to sync the staging Kustomize overlay and 
+Note that with `path: ./apps/staging` we configure Flux to sync the staging Kustomize overlay and
 with `dependsOn` we tell Flux to create the infrastructure items before deploying the apps.
 
 Fork this repository on your personal GitHub account and export your GitHub access token, username and repo name:
@@ -319,7 +319,7 @@ Watch for the Helm releases being installed on staging:
 ```console
 $ watch flux get helmreleases --all-namespaces
 
-NAMESPACE    	NAME         	REVISION	SUSPENDED	READY	MESSAGE 
+NAMESPACE    	NAME         	REVISION	SUSPENDED	READY	MESSAGE
 cert-manager 	cert-manager 	v1.11.0 	False    	True 	Release reconciliation succeeded
 ingress-nginx	ingress-nginx	4.4.2   	False    	True 	Release reconciliation succeeded
 podinfo      	podinfo      	6.3.0   	False    	True 	Release reconciliation succeeded
@@ -354,11 +354,11 @@ Watch the production reconciliation:
 ```console
 $ flux get kustomizations --watch
 
-NAME             	REVISION     	SUSPENDED	READY	MESSAGE                         
-apps             	main/696182e	False    	True 	Applied revision: main/696182e	
-flux-system      	main/696182e	False    	True 	Applied revision: main/696182e	
-infra-configs    	main/696182e	False    	True 	Applied revision: main/696182e	
-infra-controllers	main/696182e	False    	True 	Applied revision: main/696182e	
+NAME             	REVISION     	SUSPENDED	READY	MESSAGE
+apps             	main/696182e	False    	True 	Applied revision: main/696182e
+flux-system      	main/696182e	False    	True 	Applied revision: main/696182e
+infra-configs    	main/696182e	False    	True 	Applied revision: main/696182e
+infra-controllers	main/696182e	False    	True 	Applied revision: main/696182e
 ```
 
 ## Add clusters
@@ -384,7 +384,7 @@ cp clusters/staging/apps.yaml clusters/dev
 ```
 
 You could create a dev overlay inside `apps`, make sure
-to change the `spec.path` inside `clusters/dev/apps.yaml` to `path: ./apps/dev`. 
+to change the `spec.path` inside `clusters/dev/apps.yaml` to `path: ./apps/dev`.
 
 Push the changes to the main branch:
 
@@ -452,7 +452,7 @@ Tell Flux to deploy the production workloads on the `production-clone` cluster:
 ```sh
 flux reconcile kustomization flux-system \
     --context=production-clone \
-    --with-source 
+    --with-source
 ```
 
 ## Testing

@@ -1,0 +1,181 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: minio
+  labels:
+    toolkit.fluxcd.io/tenant: kog-team
+---
+apiVersion: traefik.io/v1alpha2
+kind: Middleware
+metadata:
+  name: default-headers
+  namespace: minio
+spec:
+  headers:
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 15552000
+    customFrameOptionsValue: SAMEORIGIN
+    customRequestHeaders:
+      X-Forwarded-Proto: https
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: body-size-headers
+  namespace: minio
+spec:
+  buffering:
+    maxRequestBodyBytes: 50000000 # 50mb
+    maxResponseBodyBytes: 50000000
+    memRequestBodyBytes:  50000000
+    memResponseBodyBytes:  50000000
+    retryExpression: IsNetworkError() && Attempts() <= 2
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: websockets-enabled
+  namespace: minio
+spec:
+  headers:
+    customRequestHeaders:
+      Connection: keep-alive, Upgrade
+      Upgrade: WebSocket
+      X-Forwarded-Proto: https
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: minio-console-ingress
+  namespace: minio
+spec:
+  entryPoints:
+    - websecure
+  routes:
+
+    - match: Host(`minio-operator.local.reinthal.cc`)
+      kind: Rule
+      middlewares:
+        - name: body-size-headers
+          namespace: minio
+        - name: websockets-enabled
+          namespace: minio
+      services:
+        - name: console
+          port: 9090
+  tls:
+    secretName: local-reinthal-cc-tls
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: minio-operator
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  url: https://operator.min.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minio-operator
+  namespace: flux-system
+spec:
+
+  chart:
+    spec:
+      chart: operator
+      version: 5.0.15
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: minio-operator
+        namespace: flux-system
+
+  install:
+    createNamespace: true
+  interval: 1m0s
+  releaseName: minio
+  targetNamespace: minio
+
+  values:
+
+    env:
+    - name: CLUSTER_DOMAIN
+      value: "local.reinthal.cc"
+    - name: OPERATOR_STS_ENABLED
+      value: "on"
+    - name: MINIO_CONSOLE_TLS_ENABLE
+      value: "off"
+
+    ingress:
+      enabled: false
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minio-tenant
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: tenant
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: minio-operator
+        namespace: flux-system
+      version: 5.0.15
+  install:
+    createNamespace: true
+  interval: 1m0s
+  releaseName: minio-tenant
+  targetNamespace: minio
+  values:
+
+    secrets: {}
+
+    tenant:
+      name: reinthal
+      features:
+        enableSFTP: true
+        domains:
+          console: https://minio-console.local.reinthal.cc
+          minio:
+          - https://minio.local.reinthal.cc
+      configuration:
+        name: minio-tenant-config-secret
+        existingSecret: true
+
+
+    ingress:
+
+      api:
+        annotations:
+          traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        enabled: true
+        host: minio.local.reinthal.cc
+        path: /
+        pathType: Prefix
+        tls:
+        - hosts:
+          - minio.local.reinthal.cc
+          secretName: local-reinthal-cc-tls
+
+      console:
+        annotations:
+          traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd, minio-websockets-enabled@kubernetescrd
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        enabled: true
+        host: minio-console.local.reinthal.cc
+        path: /
+        pathType: Prefix
+        tls:
+        - hosts:
+          - minio-console.local.reinthal.cc
+          secretName: local-reinthal-cc-tls
