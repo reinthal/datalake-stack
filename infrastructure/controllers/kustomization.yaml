@@ -5,5 +5,5 @@ resources:
   - kubeseal.yaml
   - traefik-proxy.yaml
   - reflector.yaml
-  #- longhorn.yaml
+  - longhorn.yaml
   - weave-gitops.yaml

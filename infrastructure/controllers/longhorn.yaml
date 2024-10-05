@@ -22,7 +22,6 @@ spec:
         name: longhorn
         namespace: longhorn-system
       interval: 5m
-
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
