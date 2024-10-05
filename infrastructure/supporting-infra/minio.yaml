@@ -50,7 +50,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: minio-console-ingress
+  name: minio-operator-ingress
   namespace: minio
 spec:
   entryPoints:
