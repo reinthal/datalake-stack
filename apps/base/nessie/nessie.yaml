@@ -32,3 +32,10 @@ spec:
       interval: 1m
   values:
     replicaCount: 3
+    versionStoreType: JDBC
+    jdbc:
+      jdbcUrl: jdbc:postgresql://postgres:5432/nessiedb?currentSchema=nessie
+      secret:
+        name: postgres-creds
+        username: postgres_username
+        password: postgres_password
