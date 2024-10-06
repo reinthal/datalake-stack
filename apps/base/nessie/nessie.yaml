@@ -30,4 +30,5 @@ spec:
         name: nessie
         namespace: nessie-ns
       interval: 1m
-      replicaCount: 3
+  values:
+    replicaCount: 3
