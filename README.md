@@ -21,7 +21,6 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] Traefik ingress
 - [x] reconfigure traefik password
 - [x] Minio console ingress
-- [ ] Minio operator ingres
 - [ ] dagster
 - [x] Minio
 - [x] polaris, doing polaris outside of kubernetes to start with.
