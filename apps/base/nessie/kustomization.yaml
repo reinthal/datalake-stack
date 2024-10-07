@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - nessie.yaml
   - postgres-creds-secrets-sealed.yaml
+  - ingress.yaml

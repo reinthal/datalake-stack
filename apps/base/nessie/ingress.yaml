@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nessie-ingress
+  namespace: nessie
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`nessie.local.reinthal.cc`)
+      kind: Rule
+      services:
+        - name: nessie
+          port: 19120
+  tls:
+    secretName: local-reinthal-cc-tls
