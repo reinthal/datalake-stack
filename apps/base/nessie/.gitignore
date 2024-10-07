@@ -1,2 +1,4 @@
 postgres-creds.yaml
 postgres-creds
+minio-creds-secret.env
+minio-creds-secret.yaml
