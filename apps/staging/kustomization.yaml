@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ../base/weave-ingress
   - ../base/traefik
-    #  - ../base/nessie
+  - ../base/nessie
