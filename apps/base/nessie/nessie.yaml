@@ -32,6 +32,28 @@ spec:
         namespace: nessie
       interval: 1m
   values:
+    catalog:
+      enable: true
+      iceberg:
+        configDefaults: {}
+        configOverrides: {}
+        defaultWarehouse: "default-warehouse"
+        objectStoresHealthCheckEnabled: true
+        warehouses:
+          - name: "default-warehouse"
+            location: "s3://iceberg/warehouse"
+            configDefaults: {}
+            configOverrides: {}
+      storage:
+        s3:
+          defaultOptions:
+            endpoint: "https://minio.local.reinthal.cc"
+            pathStyleAccess: "true"
+            region: "us-east-1"  # MinIO often uses a default region
+            accessKeySecret:
+              name: "minio-creds"  # Name of the Kubernetes secret containing MinIO credentials
+              awsAccessKeyId: "accessKeyId"  # Key in the secret for access key ID
+              awsSecretAccessKey: "secretAccessKey"  # Key in the secret for secret access key
     replicaCount: 3
     versionStoreType: JDBC
     jdbc:
