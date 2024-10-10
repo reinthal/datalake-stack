@@ -70,8 +70,3 @@ spec:
             allow-x-forwarded: "true"
             enable-forwarded-host: "true"
             enable-forwarded-prefix: "true"
-      nessie:
-        version:
-          store:
-            persist:
-              id: nessie-store
