@@ -33,7 +33,7 @@ spec:
       interval: 1m
   values:
     catalog:
-      enable: true
+      enabled: true
       iceberg:
         configDefaults: {}
         configOverrides: {}
@@ -44,16 +44,16 @@ spec:
             location: "s3://iceberg/warehouse"
             configDefaults: {}
             configOverrides: {}
-      storage:
-        s3:
-          defaultOptions:
-            endpoint: "https://minio.local.reinthal.cc"
-            pathStyleAccess: "true"
-            region: "us-east-1"  # MinIO often uses a default region
-            accessKeySecret:
-              name: "minio-creds"  # Name of the Kubernetes secret containing MinIO credentials
-              awsAccessKeyId: "accessKeyId"  # Key in the secret for access key ID
-              awsSecretAccessKey: "secretAccessKey"  # Key in the secret for secret access key
+    storage:
+      s3:
+        defaultOptions:
+          endpoint: "https://minio.local.reinthal.cc"
+          pathStyleAccess: "true"
+          region: "us-east-1"
+          accessKeySecret:
+            name: "minio-creds"
+            awsAccessKeyId: "accessKeyId"
+            awsSecretAccessKey: "secretAccessKey"
     replicaCount: 3
     versionStoreType: JDBC
     jdbc:
@@ -70,3 +70,8 @@ spec:
             allow-x-forwarded: "true"
             enable-forwarded-host: "true"
             enable-forwarded-prefix: "true"
+      nessie:
+        version:
+          store:
+            persist:
+              id: nessie-store
