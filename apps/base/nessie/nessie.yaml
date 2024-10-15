@@ -45,16 +45,16 @@ spec:
             location: "s3://iceberg/warehouse"
             configDefaults: {}
             configOverrides: {}
-    storage:
-      s3:
-        defaultOptions:
-          endpoint: "https://minio.local.reinthal.cc"
-          pathStyleAccess: "true"
-          region: "us-east-1"
-          accessKeySecret:
-            name: "minio-creds"
-            awsAccessKeyId: "accessKeyId"
-            awsSecretAccessKey: "secretAccessKey"
+      storage:
+        s3:
+          defaultOptions:
+            endpoint: "https://minio.local.reinthal.cc"
+            pathStyleAccess: "true"
+            region: "us-east-1"
+            accessKeySecret:
+              name: "minio-creds"
+              awsAccessKeyId: "accessKeyId"
+              awsSecretAccessKey: "secretAccessKey"
     replicaCount: 3
     versionStoreType: JDBC
     jdbc:
