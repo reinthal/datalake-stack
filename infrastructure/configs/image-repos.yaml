@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: howigotpwned
+    name: dataproject
   policy:
     semver:
       range: 0.x.x
