@@ -21,20 +21,20 @@ kind: IngressRoute
 metadata:
   name: dagster-frontend
   namespace: dagster
-
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
-  - websecure
-
+    - websecure
   routes:
-  - match: Host(`dagster.local.reinthal.cc`)
-    kind: Rule
-    middlewares:
-    - name: dagster-dashboard-basicauth
-      namespace: dagster
-    services:
-    - name: dagster-dagster-webserver
-      port: 80
+    - match: Host(`dagster.local.reinthal.cc`)
+      kind: Rule
+      middlewares:
+        - name: dagster-dashboard-basicauth
+          namespace: dagster
+      services:
+        - name: dagster-dagster-webserver
+          port: 80
   tls:
     secretName: local-reinthal-cc-tls
 
