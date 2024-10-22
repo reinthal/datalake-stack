@@ -13,11 +13,11 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: cofinder-api
+  name: dataproject
   namespace: flux-system
 spec:
   image: ghcr.io/reinthal/dataproject
   interval: 15m
-  provider: github
+  provider: generic
   secretRef:
     name: ghcr-secret
