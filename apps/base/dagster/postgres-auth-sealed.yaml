@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: postgres-auth
+  namespace: dagster
+spec:
+  encryptedData:
+    postgresql-password: AgBrj5TGMlSJtmXXUt9hQJghNkznZhWaNeQjNQT2S4L66d5/1xIMKT2cij2h96I2qVEVF71WY5GaQ+rqOB9wl1vrZjmLnAbKuQphCrRz2IE1/4ZD3t0TkHuA92SdXVwa7F6UplLaswpUEa4FUquGFb57Ixz4DGiCo0Mo0OA48ufIcRWCfHAi9jLwNwQ/xySXh2uH9zE/SUDm7CPqmITZj9HUZrcZLjcsJnQ4PFytsIeTSZLbUJ6c3muNNrAYRlZMjOWiGtazmnsTZ1l4GoGvYChVeuTycc0mxm610TQ8rfHu00lJaXUOjroiMi2oTnI/TdGiEFsfv3BVueOi0Wyas+EeRw2U51wAWZv3rbiKFVkXy1bLq2UWKgaMABGtE97s1IMFPZujWPzWW8HQcsJhUp86eL/2ZJFSj/mMHwJG+y4Kz6tIKoz8Vl5qASju38LYG1ieuAEGqGKBKLygOiZVxfQA14V30RAswnfTXmUS4srVqbP8bxLOrtNrof2ne4x3fi5wKYjvVYSzrJiRIScv7IMSsxQMCXyxAOeHYvKGhCVCp0L7u4lhrdQ8oAyCo8q1bz9g/sOqne+aeQNegygW1l2WKbaaysCgbgEKx8x/IY705f8qDR76Nm90Q5eR5AcWRqNC3EPXDG8dAhxOkfjuGaRChQPDChFUyhHfqUwg072xBarg1k9p8k2q79F4sjtt7Q15NhGdS/iO4nL6/h29AXy+fTS7vCP8QHGtKuE=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: postgres-auth
+      namespace: dagster

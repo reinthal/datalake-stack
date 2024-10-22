@@ -1,0 +1,41 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: dagster-dashboard-basicauth
+  namespace: dagster
+spec:
+  basicAuth:
+    secret: dagster-dashboard-auth
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dagster-dashboard-auth
+  namespace: dagster
+type: Opaque
+data:
+  users: Z2FuZGFsZjokYXByMSRta1ppdDJXZyRUSW9DcmcvdnNTbFRhWjYuazg0VUMwCgo=
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dagster-frontend
+  namespace: dagster
+
+spec:
+  entryPoints:
+  - websecure
+
+  routes:
+  - match: Host(`dagster.local.reinthal.me`)
+    kind: Rule
+    middlewares:
+    - name: dagster-dashboard-basicauth
+      namespace: dagster
+    services:
+    - name: dagster-dagster-webserver
+      port: 80
+  tls:
+    secretName: local-reinthal-cc-tls
+
+---

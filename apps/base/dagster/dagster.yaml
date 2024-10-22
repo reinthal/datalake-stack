@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dagster
+  labels:
+    toolkit.fluxcd.io/tenant: kog-team
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: dagster
+  namespace: dagster
+spec:
+  interval: 24h
+  url: https://dagster-io.github.io/helm
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: dagster
+  namespace: flux-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: dagster
+      version: "1.8.6"
+      sourceRef:
+        kind: HelmRepository
+        name: dagster
+        namespace: dagster
+      interval: 1m
+  values:
+    dagster-user-deployments:
+      enabled: true
+      imagePullSecrets:
+        - name: ghcr-secret
+      deployments:
+        - name: codeserver
+          image:
+            repository: ghcr.io/reinthal/howigotpwned
+            tag: latest
+            pullPolicy: IfNotPresent
+          port: 4000
+          envSecrets:
+            - name: codeserver-secrets
+          envConfigMaps:
+            - name: codeserver-configuration
+    global:
+      postgresqlSecretName: postgres-auth
+    generatePostgresqlPasswordSecret: false
+    postgresql:
+      enabled: false
+      postgresqlHost: postgres.reinthal.me
+      postgresqlDatabase: dagster
+      postgresqlUsername: dagster
