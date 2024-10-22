@@ -6,3 +6,4 @@ resources:
   - cloudflare-token-secret-sealed.yaml
   - ghcr-secret-sealed.yaml
   - image-repos.yaml
+  - image-update-automation.yaml
