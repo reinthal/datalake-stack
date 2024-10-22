@@ -27,7 +27,7 @@ spec:
   - websecure
 
   routes:
-  - match: Host(`dagster.local.reinthal.me`)
+  - match: Host(`dagster.local.reinthal.cc`)
     kind: Rule
     middlewares:
     - name: dagster-dashboard-basicauth
