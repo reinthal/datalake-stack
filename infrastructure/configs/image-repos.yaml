@@ -1,0 +1,23 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: dataproject
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: howigotpwned
+  policy:
+    semver:
+      range: 0.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: cofinder-api
+  namespace: flux-system
+spec:
+  image: ghcr.io/reinthal/dataproject
+  interval: 15m
+  provider: github
+  secretRef:
+    name: ghcr-secret
