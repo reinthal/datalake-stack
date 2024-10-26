@@ -17,7 +17,7 @@ metadata:
   namespace: flux-system
 spec:
   image: ghcr.io/reinthal/howigotpwned/dagster
-  interval: 15m
+  interval: 5m
   provider: generic
   secretRef:
     name: ghcr-secret

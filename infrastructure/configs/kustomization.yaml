@@ -5,5 +5,5 @@ resources:
   - allow-ingress-sealed-secrets.yaml
   - cloudflare-token-secret-sealed.yaml
   - ghcr-secret-sealed.yaml
-    #  - image-repos.yaml
-    #- image-update-automation.yaml
+  - image-repos.yaml
+  - image-update-automation.yaml
