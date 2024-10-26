@@ -2,12 +2,18 @@
 [[commands]]
 
 package = "sops"
+category = "gitops"
+
+[[commands]]
+category = "gitops"
+package = "k9s"
 
 [[commands]]
 
 help = "Get Coffee ☕"
 name = "coffee"
 command = "echo '☕'"
+category = "relax"
 
 [[commands]]
 
@@ -21,7 +27,7 @@ help = "Deploy 🔨"
 name = "deploy"
 
 command = '''
-echo "It's just git push!🔨 Enjoying fluxcd?"
+echo "It's just git push!🔨 Enjoying gitops?"
 validate
 git push origin HEAD
 '''
@@ -38,16 +44,19 @@ help = " ☢ Bootstrap Cluster ☢"
 name = "bootstrap"
 command = '''
 flux bootstrap github \
+    --components-extra=image-reflector-controller,image-automation-controller \
     --context=staging \
     --owner=${GITHUB_USER} \
     --repository=${GITHUB_REPO} \
     --branch=main \
     --personal \
+    --read-write-key \
     --path=clusters/staging
 '''
 [[commands]]
 
 package = "kind"
+category = "ci"
 
 [[commands]]
 
