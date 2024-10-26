@@ -38,8 +38,8 @@ spec:
       deployments:
         - name: codeserver
           image:
-            repository: ghcr.io/reinthal/dataproject
-            tag: latest
+            repository: ghcr.io/reinthal/howigotpwned/dagster
+            tag: 0.3.1
             pullPolicy: IfNotPresent
           port: 4000
           envSecrets:

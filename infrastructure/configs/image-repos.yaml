@@ -1,11 +1,11 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: dataproject
+  name: howigotpwned
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: dataproject
+    name: howigotpwned
   policy:
     semver:
       range: 0.x.x
@@ -13,10 +13,10 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: dataproject
+  name: howigotpwned
   namespace: flux-system
 spec:
-  image: ghcr.io/reinthal/dataproject
+  image: ghcr.io/reinthal/howigotpwned/dagster
   interval: 15m
   provider: generic
   secretRef:

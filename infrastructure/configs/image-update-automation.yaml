@@ -8,7 +8,7 @@ spec:
   git:
     checkout:
       ref:
-        branch: production
+        branch: main
     commit:
       author:
         email: fluxcdbot@users.noreply.github.com
