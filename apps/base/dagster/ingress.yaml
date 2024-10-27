@@ -14,7 +14,7 @@ metadata:
   namespace: dagster
 type: Opaque
 data:
-  users: Z2FuZGFsZjokYXByMSRta1ppdDJXZyRUSW9DcmcvdnNTbFRhWjYuazg0VUMwCgo=
+  users: a29nOiQyeSQxMiQwV29vN05mZEZPUXR5VEJ1dWhjRldPdlhZM1djTlVZamxvQ2lvdVE2RnRzcW8zQ0FiQW4vTw==
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
