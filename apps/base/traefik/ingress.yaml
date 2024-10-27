@@ -13,7 +13,7 @@ spec:
       kind: Rule
       middlewares:
         - name: traefik-dashboard-basicauth
-          namespace: flux-system
+          namespace: traefik
       services:
         - name: api@internal
           kind: TraefikService
