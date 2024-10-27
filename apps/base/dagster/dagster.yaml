@@ -31,6 +31,12 @@ spec:
         namespace: dagster
       interval: 1m
   values:
+    dagsterDaemon:
+      runCoordinator:
+        config:
+          queuedRunCoordinator:
+            # Configure this so as to not overwhel k8s and minio
+            maxConcurrentRuns: 5
     dagster-user-deployments:
       enabled: true
       imagePullSecrets:
