@@ -5,3 +5,4 @@ resources:
   - ../base/traefik
   - ../base/nessie
   - ../base/dagster
+  - ../base/ray
