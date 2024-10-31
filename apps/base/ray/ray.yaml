@@ -30,16 +30,5 @@ spec:
         name: kuberay
         namespace: ray-system
       interval: 1m
-  values:
-    # Add any specific values you want to configure for the Ray operator
-    image:
-      repository: rayproject/ray
-      tag: "2.9.0"  # or your desired Ray version
-    resources:
-      requests:
-        cpu: "500m"
-        memory: "512Mi"
-      limits:
-        cpu: "4"
-        memory: "2Gi"
+  values: {}
 ---
