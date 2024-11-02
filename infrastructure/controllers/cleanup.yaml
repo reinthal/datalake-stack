@@ -5,7 +5,7 @@ metadata:
   name: pod-cleanup
   namespace: dagster
 spec:
-schedule: "*/30 * * * *"
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
@@ -14,8 +14,7 @@ schedule: "*/30 * * * *"
           containers:
           - name: kubectl-container
             image: bitnami/kubectl:latest
-            # I'm using bitnami kubectl, because the suggested kubectl image didn't had the `field-selector` option
-            command: ["sh", "-c", "kubectl delete jobs --field-selector status.successful=1"]
+            command: ["sh", "-c", "kubectl delete jobs --field-selector=status.successful=1"]
           restartPolicy: Never
 ---
 apiVersion: v1
