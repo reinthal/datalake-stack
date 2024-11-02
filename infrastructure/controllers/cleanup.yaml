@@ -1,29 +1,22 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: cleaner
-  labels:
-    toolkit.fluxcd.io/tenant: sre-team
----
 apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: pod-cleanup
-  namespace: cleaner
+  namespace: dagster
 spec:
-  schedule: "*/1 * * * *"
+schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
           serviceAccountName: pod-cleanup-sa
           containers:
-            - name: pod-cleanup
-              image: bitnami/kubectl:latest
-              command: ["delete", "pods", "--field-selector=status.phase!=Running", "-n", "dagster"]
-              imagePullPolicy: Always
-          restartPolicy: OnFailure
+          - name: kubectl-container
+            image: bitnami/kubectl:latest
+            # I'm using bitnami kubectl, because the suggested kubectl image didn't had the `field-selector` option
+            command: ["sh", "-c", "kubectl delete jobs --field-selector status.successful=1"]
+          restartPolicy: Never
 ---
 apiVersion: v1
 kind: ServiceAccount
