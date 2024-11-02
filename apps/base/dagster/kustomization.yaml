@@ -6,6 +6,7 @@ resources:
 - codeserver-configuration.yaml
 - codeserver-secrets-sealed.yaml
 - postgres-auth-sealed.yaml
+- cleanup.yaml
 # frontend
 - ingress.yaml
 
