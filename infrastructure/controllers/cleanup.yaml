@@ -20,7 +20,8 @@ spec:
           serviceAccountName: pod-cleanup-sa
           containers:
             - name: pod-cleanup
-              image: kognitiva/kubernetes-utils:latest
+              image: bitnami/kubectl:latest
+              command: ["delete", "pods", "--field-selector=status.phase!=Running", "-n", "dagster"]
               imagePullPolicy: Always
           restartPolicy: OnFailure
 ---
