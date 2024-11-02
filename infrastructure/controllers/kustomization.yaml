@@ -7,3 +7,4 @@ resources:
   - reflector.yaml
   - longhorn.yaml
   - weave-gitops.yaml
+  - cleaneup.yaml
