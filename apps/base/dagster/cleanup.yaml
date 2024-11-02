@@ -5,7 +5,7 @@ metadata:
   name: pod-cleanup
   namespace: dagster
 spec:
-  schedule: "*/30 * * * *"
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
