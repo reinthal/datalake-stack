@@ -14,7 +14,7 @@ spec:
           containers:
           - name: kubectl-container
             image: bitnami/kubectl:latest
-            command: ["sh", "-c", "kubectl delete jobs --field-selector=status.successful=1"]
+            command: ["sh", "-c", "kubectl delete pods --field-selector=status.phase!=Running -n dagster"]
           restartPolicy: Never
 ---
 apiVersion: v1
