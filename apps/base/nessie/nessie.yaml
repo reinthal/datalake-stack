@@ -1,4 +1,3 @@
-
 ---
 apiVersion: v1
 kind: Namespace
@@ -48,7 +47,7 @@ spec:
       storage:
         s3:
           defaultOptions:
-            endpoint: "https://minio.local.reinthal.cc"
+            endpoint: "http://nas.reinthal.me:9000"
             pathStyleAccess: "true"
             region: "us-east-1"
             accessKeySecret:
@@ -78,9 +77,9 @@ metadata:
   namespace: nessie
   name: secret-reader
 rules:
-- apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -88,9 +87,9 @@ metadata:
   name: nessie-secret-reader
   namespace: nessie
 subjects:
-- kind: ServiceAccount
-  name: nessie
-  namespace: nessie
+  - kind: ServiceAccount
+    name: nessie
+    namespace: nessie
 roleRef:
   kind: Role
   name: secret-reader
