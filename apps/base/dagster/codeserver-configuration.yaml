@@ -5,13 +5,11 @@ metadata:
   name: codeserver-configuration
   namespace: dagster
 data:
+  # All non secret environment variables for dagster
   NESSIE_BRANCH: main
   NESSIE_WAREHOUSE: s3://iceberg/warehouse
   NESSIE_URI: https://nessie.local.reinthal.cc/iceberg
   SOURCES__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: http://nas.reinthal.me:9000
-  DESTINATION__FILESYSTEM__CREDENTIALS__AWS_ACCESS_KEY_ID: fHMreKXpjeyP8JnWgeVk
-  DESTINATION__FILESYSTEM__CREDENTIALS__AWS_SECRET_ACCESS_KEY: pGGAYZBQhVPm6ch9JGl4zOR6ukB0CnT8fXs29HuN
-  DESTINATION__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: https://minio.local.reinthal.cc
-  # All non secret environment variables for dagster
+  DESTINATION__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: http://nas.reinthal.me:9000
   DAGSTER_HOST: dagster.local.reinthal.cc
   TARGET: prod
