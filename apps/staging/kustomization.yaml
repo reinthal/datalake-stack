@@ -7,3 +7,4 @@ resources:
   - ../base/dagster
   - ../base/ray
   - ../base/cyberchef
+  - ../base/trino
