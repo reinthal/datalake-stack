@@ -21,7 +21,7 @@ metadata:
   name: nessie
   namespace: nessie
 spec:
-  interval: 5m
+  interval: 60m
   chart:
     spec:
       chart: nessie
@@ -30,7 +30,7 @@ spec:
         kind: HelmRepository
         name: nessie
         namespace: nessie
-      interval: 1m
+      interval: 60m
   values:
     catalog:
       enabled: true
