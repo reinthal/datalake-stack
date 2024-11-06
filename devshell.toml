@@ -9,6 +9,10 @@ category = "gitops"
 package = "k9s"
 
 [[commands]]
+category = "gitops"
+package = "kubernetes-helm"
+
+[[commands]]
 
 help = "Get Coffee ☕"
 name = "coffee"
