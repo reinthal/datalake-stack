@@ -6,3 +6,4 @@ resources:
   - ../base/nessie
   - ../base/dagster
   - ../base/ray
+  - ../base/cyberchef
