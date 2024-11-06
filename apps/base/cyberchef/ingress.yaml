@@ -14,7 +14,7 @@ spec:
       kind: Rule
       services:
         - name: cyberchef-service
-          port: 80
+          port: 8080
   tls:
     secretName: local-reinthal-cc-tls
 ---
