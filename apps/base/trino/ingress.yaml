@@ -1,0 +1,29 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: trino
+  namespace: trino
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`trino.local.reinthal.cc`)
+      kind: Rule
+     middlewares:
+        - name: trino-dashboard-basicauth
+          namespace: trino
+     services:
+        - name: trino-cluster-trino
+          port: 8080
+  tls:
+    secretName: local-reinthal-cc-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: trino-dashboard-basicauth
+  namespace: trino
+spec:
+  basicAuth:
+    secret: trino-dashboard-auth
+
