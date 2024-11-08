@@ -31,6 +31,18 @@ spec:
         namespace: trino
       interval: 1m
   values:
+    envFrom:
+      - secretRef:
+        name: minio-creds
+# envFrom -- additional environment variables added to every pod, specified as a list of either `ConfigMap`
+# or `Secret` references
+# @raw
+# Example:
+# ```yaml
+#   - secretRef:
+#     name: extra-secret
+# ```
+
     image:
       tag: "464"
     server:
