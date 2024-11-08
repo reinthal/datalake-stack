@@ -4,3 +4,4 @@ namespace: trino
 resources:
 - trino.yaml
 - ingress.yaml
+- minio-creds-secret-sealed.yaml
