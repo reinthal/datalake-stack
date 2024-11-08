@@ -11,7 +11,7 @@ spec:
       kind: Rule
       services:
         - name: kuberay-operator
-          port: 8265
+          port: 8080
   tls:
     secretName: local-reinthal-cc-tls
 ---
@@ -31,7 +31,7 @@ metadata:
   namespace: ray-system
 type: Opaque
 data:
-  users: a29nOiQyeSQxMiQwV29vN05mZEZPUXR5VEJ1dWhjRldPdlhZM1djTlVZamxvQ2lvdVE2RnRzcW8zQ0FiQW4vTw==  # Same as your Dagster auth
+  users: a29nOiQyeSQxMiQwV29vN05mZEZPUXR5VEJ1dWhjRldPdlhZM1djTlVZamxvQ2lvdVE2RnRzcW8zQ0FiQW4vTw== # Same as your Dagster auth
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
@@ -48,7 +48,7 @@ spec:
         - name: ray-dashboard-basicauth
           namespace: ray-system
       services:
-        - name: raycluster-head-svc  # This will be created by the Ray cluster
+        - name: raycluster-kuberay-head-svc # This will be created by the Ray cluster
           port: 8265
   tls:
     secretName: local-reinthal-cc-tls
