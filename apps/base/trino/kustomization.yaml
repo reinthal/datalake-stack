@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: trino
 resources:
 - trino.yaml
+- ingress.yaml

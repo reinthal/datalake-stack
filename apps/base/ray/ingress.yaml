@@ -3,6 +3,8 @@ kind: IngressRoute
 metadata:
   name: ray-operator
   namespace: ray-system
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
     - websecure
@@ -38,6 +40,8 @@ kind: IngressRoute
 metadata:
   name: ray-dashboard
   namespace: ray-system
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
     - websecure
