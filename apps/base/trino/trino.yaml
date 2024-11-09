@@ -54,7 +54,7 @@ spec:
       jvm:
         maxHeapSize: "4G"
     catalogs:
-      lakehouse: |-
+      prod: |-
         connector.name=iceberg
         fs.native-s3.enabled=true
         iceberg.catalog.type=rest
@@ -64,5 +64,16 @@ spec:
         s3.endpoint=http\://nas.reinthal.me\:9000
         s3.path-style-access=true
         s3.region=us-east-1
+      dev: |-
+        connector.name=iceberg
+        iceberg.catalog.type=nessie
+        iceberg.nessie-catalog.uri=https\://nessie.local.reinthal.cc/api/v2
+        iceberg.nessie-catalog.default-warehouse-dir=/tmp
+        iceberg.nessie-catalog.ref=dev
+        iceberg.nessie-catalog.client-api-version=V2
+        s3.endpoint=http\://nas.reinthal.me\:9000
+        s3.path-style-access=true
+        s3.region=us-east-1
+
     additionalConfigProperties:
       - http-server.process-forwarded=true
