@@ -45,7 +45,7 @@ spec:
         - name: codeserver
           image:
             repository: ghcr.io/reinthal/howigotpwned/dagster # {"$imagepolicy": "flux-system:howigotpwned:name"}
-            tag: 0.7.0 # {"$imagepolicy": "flux-system:howigotpwned:tag"}
+            tag: 0.8.0 # {"$imagepolicy": "flux-system:howigotpwned:tag"}
             pullPolicy: IfNotPresent
           port: 4000
           envSecrets:
