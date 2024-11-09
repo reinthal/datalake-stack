@@ -2,8 +2,26 @@
 
 [![test](https://github.com/reinthal/datalake-stack/actions/workflows/test.yaml/badge.svg)](https://github.com/reinthal/datalake-stack/actions/workflows/test.yaml)
 
-
 Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s.
+
+# todo 3.0
+
+- [ ] Spark
+- [ ] BI Tool?
+
+
+# todo 2.0
+- [x] Traefik ingress
+- [x] reconfigure traefik password
+- [x] Minio console ingress
+- [x] dagster
+- [x] Minio
+- [x] Nessie
+- [x] Ray
+- [x] Trino
+- [x] configs
+
+# todo 1.0
 
 - [x] Disable apps deployment
 - [x] Add infrastructure apps
@@ -17,15 +35,6 @@ Kubernetes Infra for setting up a modern big data lakehouse stack at home in k3s
 - [x] cf-token-secret-sealed
 - [x] 1 ingress controller
 
-## Todo 2.0
-- [x] Traefik ingress
-- [x] reconfigure traefik password
-- [x] Minio console ingress
-- [ ] dagster
-- [x] Minio
-- [x] polaris, doing polaris outside of kubernetes to start with.
-- [ ] Dask
-- [ ] configs
 
 ## Prerequisites
 
