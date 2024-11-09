@@ -15,11 +15,11 @@ spec:
           - http://nessie.nessie.svc.cluster.local:19120/api/v2
           - --jdbc
           - --jdbc-url
-          - "\$(JDBC_URL)"
+          - "$(JDBC_URL)"
           - --jdbc-user
-          - "\$(JDBC_USER)"
+          - "$(JDBC_USER)"
           - --jdbc-password
-          - "\$(JDBC_PASSWORD)"
+          - "$(JDBC_PASSWORD)"
         envFrom:
         - secretRef:
             name: nessie-gc-credentials
