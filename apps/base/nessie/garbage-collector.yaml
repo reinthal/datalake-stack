@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nessie-gc
+  name: nessie
 spec:
   replicas: 1
   selector:
@@ -13,18 +13,18 @@ spec:
         app: nessie-gc
     spec:
       containers:
-      - name: nessie-gc
-        image: ghcr.io/projectnessie/nessie-gc
-        args:
-        - gc
-        - --uri
-        - http://nessie.nessie.svc.cluster.local:19120/api/v2
-        - --jdbc-url
-        - "$(JDBC_URL)"
-        - --jdbc-user
-        - "$(JDBC_USER)"
-        - --jdbc-password
-        - "$(JDBC_PASSWORD)"
-        envFrom:
-        - secretRef:
-            name: nessie-gc-credentials
+        - name: nessie-gc
+          image: ghcr.io/projectnessie/nessie-gc
+          args:
+            - gc
+            - --uri
+            - http://nessie.nessie.svc.cluster.local:19120/api/v2
+            - --jdbc-url
+            - "$(JDBC_URL)"
+            - --jdbc-user
+            - "$(JDBC_USER)"
+            - --jdbc-password
+            - "$(JDBC_PASSWORD)"
+          envFrom:
+            - secretRef:
+                name: nessie-gc-credentials
