@@ -1,4 +1,3 @@
----
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -8,9 +7,9 @@ spec:
   schedule: "*/5 * * * *"
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 10
       template:
         spec:
-          ttlSecondsAfterFinished: 10
           serviceAccountName: pod-cleanup-sa
           containers:
             - name: kubectl-container
