@@ -11,6 +11,13 @@ spec:
       template:
         spec:
           containers:
+             - name: shell-sidecar
+              image: ghcr.io/projectnessie/nessie-gc
+              args:
+                - sleep
+                - "141999"  # Keeps the container running indefinitely
+              stdin: true
+              tty: true
             - name: nessie-gc
               image: ghcr.io/projectnessie/nessie-gc
               args:
