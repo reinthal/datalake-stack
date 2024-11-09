@@ -16,6 +16,7 @@ spec:
       containers:
         - name: nessie-gc
           image: ghcr.io/projectnessie/nessie-gc
+          command: ["sh", "-c", "bash"]
           args:
             - gc
             - --uri
