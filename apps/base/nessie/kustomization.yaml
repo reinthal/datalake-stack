@@ -5,4 +5,4 @@ resources:
   - postgres-creds-secrets-sealed.yaml
   - minio-creds-secret-sealed.yaml
   - ingress.yaml
-  - jobs.yaml
+  - cleanup.yaml

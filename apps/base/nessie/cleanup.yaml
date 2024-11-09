@@ -1,0 +1,34 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: nessie-gc-cronjob
+  namespace: nessie
+spec:
+  # Schedule the job to run daily at 03:00 AM
+  schedule: "0 3 * * *"
+  # Clean up the finished jobs after 72000 seconds (20 hours)
+  successfulJobsHistoryLimit: 0  # No need to keep any history of successful jobs
+  failedJobsHistoryLimit: 1      # Automatically delete failed job records after they are one day old
+  jobTemplate:
+    spec:
+      # Time-to-live settings for this job. Note: Your cluster must have TTL controller enabled
+      ttlSecondsAfterFinished: 72000
+      template:
+        spec:
+          containers:
+          - name: nessie-gc
+            image: ghcr.io/projectnessie/nessie-gc
+            args: 
+              - gc
+              - --uri
+              - http://nessie.nessie.svc.cluster.local:19120/api/v2
+              - --jdbc-url
+              - "$(JDBC_URL)"
+              - --jdbc-user
+              - "$(JDBC_USER)"
+              - --jdbc-password
+              - "$(JDBC_PASSWORD)"
+            envFrom:
+            - secretRef:
+                name: nessie-gc-credentials
+          restartPolicy: Never
