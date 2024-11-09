@@ -8,7 +8,7 @@ spec:
     name: howigotpwned
   policy:
     semver:
-      range: 0.x.x
+      range: 1.x.x
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
