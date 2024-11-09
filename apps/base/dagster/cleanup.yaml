@@ -10,11 +10,17 @@ spec:
     spec:
       template:
         spec:
+          ttlSecondsAfterFinished: 10
           serviceAccountName: pod-cleanup-sa
           containers:
-          - name: kubectl-container
-            image: bitnami/kubectl:latest
-            command: ["sh", "-c", "kubectl delete pods --field-selector=status.phase!=Running -n dagster"]
+            - name: kubectl-container
+              image: bitnami/kubectl:latest
+              command:
+                [
+                  "sh",
+                  "-c",
+                  "kubectl delete pods --field-selector=status.phase!=Running -n dagster",
+                ]
           restartPolicy: Never
 ---
 apiVersion: v1
