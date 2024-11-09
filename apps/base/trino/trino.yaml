@@ -34,15 +34,6 @@ spec:
     envFrom:
       - secretRef:
           name: minio-creds
-    # envFrom -- additional environment variables added to every pod, specified as a list of either `ConfigMap`
-    # or `Secret` references
-    # @raw
-    # Example:
-    # ```yaml
-    #   - secretRef:
-    #     name: extra-secret
-    # ```
-
     image:
       tag: "464"
     server:
@@ -71,9 +62,5 @@ spec:
         iceberg.nessie-catalog.default-warehouse-dir=/tmp
         iceberg.nessie-catalog.ref=dev
         iceberg.nessie-catalog.client-api-version=V2
-        s3.endpoint=http\://nas.reinthal.me\:9000
-        s3.path-style-access=true
-        s3.region=us-east-1
-
     additionalConfigProperties:
       - http-server.process-forwarded=true
