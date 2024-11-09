@@ -10,6 +10,10 @@ package = "k9s"
 
 [[commands]]
 category = "gitops"
+package = "commitizen"
+
+[[commands]]
+category = "gitops"
 package = "kubernetes-helm"
 
 [[commands]]
