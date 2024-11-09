@@ -7,4 +7,4 @@ resources:
   - minio-creds-secret-sealed.yaml
   - ingress.yaml
   - cleanup.yaml
-  - garbage-collector.yaml
+    #  - garbage-collector.yaml

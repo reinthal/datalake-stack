@@ -16,11 +16,8 @@ spec:
       containers:
         - name: nessie-gc
           image: ghcr.io/projectnessie/nessie-gc
-          command: ["sh", "-c", "bash"]
           args:
-            - gc
-            - --uri
-            - http://nessie.nessie.svc.cluster.local:19120/api/v2
+            - create-sql-schema
             - --jdbc-url
             - "$(JDBC_URL)"
             - --jdbc-user
