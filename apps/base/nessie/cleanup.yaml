@@ -23,6 +23,8 @@ spec:
                 - "$(JDBC_USER)"
                 - --jdbc-password
                 - "$(JDBC_PASSWORD)"
+                - --iceberg
+                - "s3.access-key-id=$(S3_ACCESS_KEY),s3.secret-access-key=$(S3_SECRET_KEY),s3.endpoint=$(S3_ENDPOINT)"
               envFrom:
                 - secretRef:
                     name: nessie-gc-credentials
