@@ -6,5 +6,7 @@ resources:
   - nessie-gc-credentials-sealed.yaml
   - minio-creds-secret-sealed.yaml
   - ingress.yaml
-  - cleanup.yaml
+  # gc script uses virtual host style  bucket lookup and i could not
+  # ge that to work with the truenas docker deployment
+    #- cleanup.yaml
     #  - garbage-collector.yaml
