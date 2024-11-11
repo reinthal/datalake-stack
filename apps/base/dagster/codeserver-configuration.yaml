@@ -9,7 +9,7 @@ data:
   NESSIE_BRANCH: main
   NESSIE_WAREHOUSE: s3://iceberg/warehouse
   NESSIE_URI: https://nessie.local.reinthal.cc/iceberg
-  SOURCES__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: http://nas.reinthal.me:9000
+  SOURCES__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: https://minio.nas.reinthal.me
   DESTINATION__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: http://nas.reinthal.me:9000
   DAGSTER_HOST: dagster.local.reinthal.cc
   TARGET: prod
