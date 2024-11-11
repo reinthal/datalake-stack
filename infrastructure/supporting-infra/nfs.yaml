@@ -1,0 +1,22 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs
+provisioner: kubernetes.io/nfs
+parameters:
+  archiveOnDelete: "false"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 1024Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs
+  nfs:
+    path: /mnt/tonberry/kubernetes
+    server: 10.22.21.10
