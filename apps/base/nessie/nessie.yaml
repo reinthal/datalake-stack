@@ -47,7 +47,7 @@ spec:
       storage:
         s3:
           defaultOptions:
-            endpoint: "http://nas.reinthal.me:9000"
+            endpoint: "https://minio.nas.reinthal.me"
             pathStyleAccess: "true"
             region: "us-east-1"
             accessKeySecret:
