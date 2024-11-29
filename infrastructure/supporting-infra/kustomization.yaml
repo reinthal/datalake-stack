@@ -5,6 +5,7 @@ resources:
 
   # keycloak
   - keycloak.yaml
+  - keycloak-middlewares.yaml
   - keycloak-admin-ingress.yaml
   - keycloak-auth-ingress.yaml
   - keycloak-secret-sealed.yaml

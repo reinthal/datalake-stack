@@ -14,14 +14,9 @@ spec:
       services:
         - name: keycloak
           port: 80
-      headers:
-        customRequestHeaders:
-          X-Forwarded-For: "client_ip" # Client IP forwarding
-          X-Forwarded-Proto: "https" # Forward the HTTPS protocol
-          X-Forwarded-Port: "443" # Forward the port as 443 for HTTPS
-        customResponseHeaders:
-          Strict-Transport-Security:
-            "max-age=31536000; includeSubDomains" # HSTS for security
+      middlewares:
+        - name:
+            keycloak-headers
             #- match: Host(`keycloak.local.reinthal.cc`) && Path(`/`)
             #  kind: Rule
             #redirect:
