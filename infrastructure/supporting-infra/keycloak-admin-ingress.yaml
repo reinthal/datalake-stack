@@ -1,0 +1,31 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: keycloak-admin
+  namespace: keycloak
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`keycloak.local.reinthal.cc`) && PathPrefix(`/auth`)
+      kind: Rule
+      services:
+        - name: keycloak
+          port: 80
+      headers:
+        customRequestHeaders:
+          X-Forwarded-For: "client_ip" # Client IP forwarding
+          X-Forwarded-Proto: "https" # Forward the HTTPS protocol
+          X-Forwarded-Port: "443" # Forward the port as 443 for HTTPS
+        customResponseHeaders:
+          Strict-Transport-Security:
+            "max-age=31536000; includeSubDomains" # HSTS for security
+            #- match: Host(`keycloak.local.reinthal.cc`) && Path(`/`)
+            #  kind: Rule
+            #redirect:
+            # permanent: true
+            #to: "/auth" # Redirect the root path to /auth
+  tls:
+    secretName: local-reinthal-cc-tls # Your TLS secret for Keycloak

@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: keycloak
   labels:
-    toolkit.fluxcd.io/tenant: datadrivet-team
+    toolkit.fluxcd.io/tenant: kog-team
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
@@ -58,20 +58,6 @@ spec:
       - name: extensions
         emptyDir: {}
     httpRelativePath: /auth/
-    ingress:
-      enabled: true
-      tls: true
-      hostname: auth.local.reinthal.cc
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-
-    adminIngress:
-      enabled: true
-      tls: true
-      hostname: keycloak.local.reinthal.cc
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-
     initContainers: |
       - name: realm-ext-provider
         image: curlimages/curl
