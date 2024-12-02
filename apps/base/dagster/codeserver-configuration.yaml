@@ -8,6 +8,8 @@ data:
   # All non secret environment variables for dagster
   NESSIE_BRANCH: main
   NESSIE_WAREHOUSE: s3://iceberg/warehouse
+  ELASTIC_PASSWORDS_INDEX: passwords-prod
+  ELASTIC_URL: https://elastic.local.reinthal.cc
   NESSIE_URI: https://nessie.local.reinthal.cc/iceberg
   SOURCES__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: https://minio.nas.reinthal.me
   DESTINATION__FILESYSTEM__CREDENTIALS__AWS_S3_ENDPOINT: http://nas.reinthal.me:9000
