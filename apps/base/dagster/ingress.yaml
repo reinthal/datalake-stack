@@ -32,13 +32,13 @@ spec:
       kind: Rule
       services:
         - name: oauth2-dagster-webui-proxy
-          port: 4180
+          port: 80
     # Dagster routes - now going through OAuth2 Proxy instead of directly to Dagster
     - match: Host(`dagster.local.reinthal.cc`)
       kind: Rule
       services:
         - name: oauth2-dagster-webui-proxy  # Point to OAuth2 proxy instead of Dagster directly
-          port: 4180
+          port: 80
   tls:
     secretName: local-reinthal-cc-tls
 ---
