@@ -32,7 +32,7 @@ spec:
 
     config:
 
-      existingSecret: oauth2-proxy-secrets
+      existingSecret: oauth2-proxy-dagster-secrets
       existingConfig: oauth2-dagster-proxy-config
 
     image:
