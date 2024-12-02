@@ -31,9 +31,16 @@ spec:
   values:
 
     config:
+      configFile: |-
+      provider = "keycloak-oidc"
+      redirect_url = "https://dagster.local.reinthal.cc/oauth2/callback"
+      oidc_issuer_url = "https://keycloak.local.reinthal.cc/auth/realms/reinthal"
+      email_domains = [ "reinthal.me" ]
+      allowed_roles = [ "dagster-operator" ]
+      code_challenge_method = "S256"
+      upstreams = [ "http://dagster-dagster-webserver.dagster.svc" ]
 
       existingSecret: oauth2-proxy-dagster-secrets
-      existingConfig: oauth2-dagster-proxy-config
 
     image:
       pullPolicy: IfNotPresent
