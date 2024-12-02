@@ -6,5 +6,9 @@ resources:
   - codeserver-configuration.yaml
   - codeserver-secrets-sealed.yaml
   - postgres-auth-sealed.yaml
+  # Oauth2 Proxy
+  - oauth2-proxy-dagster-config.yaml
+  - oauth2-proxy-dagster-helmrelease.yaml
+  - oauth2-proxy-dagster-secrets-sealed.yaml
   # frontend
   - ingress.yaml

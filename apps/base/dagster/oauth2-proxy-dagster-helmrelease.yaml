@@ -1,0 +1,51 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: oauth2-proxy
+  namespace: dagster
+spec:
+  interval: 1m0s
+  url: https://oauth2-proxy.github.io/manifests
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: dagster
+spec:
+  chart:
+    spec:
+      chart: oauth2-proxy
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: oauth2-proxy
+        namespace: dagster
+      version: 7.8.0
+  install:
+    createNamespace: false
+  interval: 1m0s
+  releaseName: oauth2-dagster-webui-proxy
+  targetNamespace: dagster
+  values:
+
+    config:
+
+      existingSecret: oauth2-proxy-secrets
+      existingConfig: oauth2-dagster-proxy-config
+
+    image:
+      pullPolicy: IfNotPresent
+      repository: quay.io/oauth2-proxy/oauth2-proxy
+      tag: "v7.7.1"
+    kubeVersion: null
+    namespaceOverride: ""
+    replicaCount: 2
+    resources:
+      limits:
+        cpu: 100m
+        memory: 300Mi
+      requests:
+        cpu: 100m
+        memory: 300Mi
