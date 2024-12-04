@@ -52,7 +52,7 @@ spec:
         iceberg.rest-catalog.security=NONE
         iceberg.rest-catalog.uri=https\://nessie.local.reinthal.cc/iceberg/
         iceberg.rest-catalog.vended-credentials-enabled=false
-        s3.endpoint=http\://nas.reinthal.me\:9000
+        s3.endpoint=https\://minio.nas.reinthal.me
         s3.path-style-access=true
         s3.region=us-east-1
     additionalConfigProperties:
