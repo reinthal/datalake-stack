@@ -7,6 +7,15 @@ category = "gitops"
 [[commands]]
 category = "gitops"
 package = "k9s"
+[[commands]]
+category = "gitops"
+package = "kubeseal"
+[[commands]]
+category = "gitops"
+package = "kubeconform"
+[[commands]]
+category = "gitops"
+package = "jq"
 
 [[commands]]
 category = "gitops"
