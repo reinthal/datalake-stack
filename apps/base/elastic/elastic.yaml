@@ -31,5 +31,5 @@ spec:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 150Gi
-            storageClassName: longhorn
+                storage: 300Gi
+            storageClassName: nfs
