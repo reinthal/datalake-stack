@@ -13,3 +13,6 @@ resources:
   # minio
   - minio.yaml
   - minio-tenant-config-secret-sealed.yaml
+
+  # Truenas CSP
+  - truenas-csp.yaml
