@@ -1,3 +1,4 @@
 *-values.yaml
 example-minio-tenant-config-secret.yaml
 minio-tenant-config-secret.yaml
+truenas-csp-secret.yaml
