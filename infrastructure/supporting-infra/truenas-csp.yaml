@@ -29,5 +29,3 @@ spec:
   interval: 360h0m0s
   releaseName: truenas-csp
   targetNamespace: truenas-csp
-
-  values: []

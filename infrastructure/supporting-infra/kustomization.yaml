@@ -16,3 +16,5 @@ resources:
 
   # Truenas CSP
   - truenas-csp.yaml
+  - truenas-csp-storage-class.yaml
+  - truenas-csp-secret-sealed.yaml
