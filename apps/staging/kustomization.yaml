@@ -8,4 +8,4 @@ resources:
   - ../base/ray
   - ../base/cyberchef
   - ../base/trino
-  - ../base/elastic
+    #- ../base/elastic
