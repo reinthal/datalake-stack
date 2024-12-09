@@ -15,7 +15,7 @@ resources:
   - minio-tenant-config-secret-sealed.yaml
 
   # Truenas CSP
-  - truenas-test-pvc.yaml
-  - truenas-csp.yaml
-  - truenas-csp-storage-class.yaml
-  - truenas-csp-secret-sealed.yaml
+  #- truenas-test-pvc.yaml
+  #- truenas-csp.yaml
+  #- truenas-csp-storage-class.yaml
+  #- truenas-csp-secret-sealed.yaml
