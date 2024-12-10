@@ -36,7 +36,7 @@ spec:
         config:
           queuedRunCoordinator:
             # Configure this so as to not overwhel k8s and minio
-            maxConcurrentRuns: 20
+            maxConcurrentRuns: 5
     dagster-user-deployments:
       enabled: true
       imagePullSecrets:
