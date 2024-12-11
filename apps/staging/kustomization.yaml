@@ -9,3 +9,4 @@ resources:
   - ../base/cyberchef
   - ../base/trino
   - ../base/elastic
+  - ../base/kubeflow
