@@ -9,4 +9,3 @@ resources:
   - elastic-ingress.yaml
   - kibana-ingress.yaml
   - default-headers.yaml
-  - logstash.yaml
