@@ -62,22 +62,10 @@ spec:
           volumeMounts:
             - name: forgejo-data
               mountPath: /data
-            - name: timezone
-              mountPath: /etc/timezone
-              readOnly: true
-            - name: localtime
-              mountPath: /etc/localtime
-              readOnly: true
       volumes:
         - name: forgejo-data
           persistentVolumeClaim:
             claimName: forgejo-data
-        - name: timezone
-          hostPath:
-            path: /etc/timezone
-        - name: localtime
-          hostPath:
-            path: /etc/localtime
 ---
 apiVersion: v1
 kind: Service
