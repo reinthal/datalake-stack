@@ -10,3 +10,4 @@ resources:
   - ../base/trino
   - ../base/elastic
   - ../base/kubeflow
+  - ../base/forgejo
