@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dremio
+  labels:
+    toolkit.fluxcd.io/tenant: kog-team
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: dagster
+  namespace: dagster
+spec:
+  interval: 24h
+  url: https://reinthal.github.io/dremio
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: dremio
+  namespace: dremio
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: dremio
+      version: "2.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: dremio
+        namespace: dremio
+      interval: 1m
+  values:
+    image: dremio/dremio-oss
+    imageTag: 25.2
+    executor:
+      count: 3
+      cpu: 4
+      memory: 4096
+      volumeSize: 128Gi
+      storageClass: longhorn-local
+      cloudCache:
+        volumes:
+          - size: 100Gi
+            storageClass: "longhorn-local"
