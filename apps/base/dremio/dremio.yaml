@@ -8,8 +8,8 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: dagster
-  namespace: dagster
+  name: dremio
+  namespace: dremio
 spec:
   interval: 24h
   url: https://reinthal.github.io/dremio

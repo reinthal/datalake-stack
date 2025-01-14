@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: dreamio
+namespace: dremio
 resources:
-  - dreamio.yaml
+  - dremio.yaml
   # frontend
   - ingress.yaml
