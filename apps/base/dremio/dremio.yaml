@@ -44,9 +44,10 @@ spec:
           - size: 100Gi
             storageClass: "longhorn-local"
     distStorage:
+      type: "aws"
       aws:
         bucketName: "dremio"
-        path: "/dremio"
+        path: "/"
         authentication: "accessKeySecret"
         credentials:
           accessKey: "aQIP2SciyJY7nwkBYb4x"
