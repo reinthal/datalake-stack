@@ -13,7 +13,7 @@ spec:
     - match: Host(`dremio.local.reinthal.cc`)
       kind: Rule
       services:
-        - name: web-dremio-service
+        - name: dremio-client
           port: 9047
   tls:
     secretName: local-reinthal-cc-tls
