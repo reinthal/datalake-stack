@@ -5,10 +5,10 @@ resources:
   - ../base/traefik
   - ../base/nessie
   - ../base/dagster
-  - ../base/ray
+  #- ../base/ray
   - ../base/cyberchef
   - ../base/trino
   #- ../base/elastic
-  - ../base/kubeflow
+  #- ../base/kubeflow
   - ../base/forgejo
   - ../base/dremio

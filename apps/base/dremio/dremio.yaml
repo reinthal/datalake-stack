@@ -33,15 +33,34 @@ spec:
   values:
     image: dremio/dremio-oss
     imageTag: "25.2"
+    # Dremio Coordinator
+    coordinator:
+      # CPU & Memory
+      # Memory allocated to each coordinator, expressed in MB.
+      # CPU allocated to each coordinator, expressed in CPU cores.
+      cpu: 4
+      memory: 4096
+
+      # This count is used for slave coordinators only.
+      # The total number of coordinators will always be count + 1.
+      # If this is greater than zero then the client and flight ports on the master
+      # will be deactivated to steer these requests away from the master node.
+      count: 1
+
+      # Coordinator data volume size (applies to the master coordinator only).
+      # In most managed Kubernetes environments (AKS, GKE, etc.), the size of the disk has a direct impact on
+      # the provisioned and maximum performance of the disk.
+      volumeSize: 50Gi
+      storageClass: "longhorn-local"
     executor:
       count: 3
       cpu: 4
       memory: 4096
-      volumeSize: 128Gi
+      volumeSize: 50Gi
       storageClass: longhorn-local
       cloudCache:
         volumes:
-          - size: 100Gi
+          - size: 50Gi
             storageClass: "longhorn-local"
     distStorage:
       type: "aws"
