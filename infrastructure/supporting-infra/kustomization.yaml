@@ -3,6 +3,12 @@ kind: Kustomization
 resources:
   - nfs.yaml
 
+  # Keycloak
+  - keycloak.yaml
+  - keycloak-middlewares.yaml
+  - keycloak-admin-ingress.yaml
+  - keycloak-auth-ingress.yaml
+  - keycloak-secret-sealed.yaml
   # minio
   #- minio.yaml
   #- minio-tenant-config-secret-sealed.yaml
