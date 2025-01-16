@@ -43,3 +43,24 @@ spec:
         volumes:
           - size: 100Gi
             storageClass: "longhorn-local"
+    distStorage:
+      aws:
+        bucketName: "dremio"
+        path: "/dremio"
+        authentication: "accessKeySecret"
+        credentials:
+          accessKey: "aQIP2SciyJY7nwkBYb4x"
+          secret: "1ymFAoJpLXruA9CT690upCLgzEj4cKz1K4hEuoJT"
+        extraProperties: |
+          <property>
+            <name>fs.s3a.endpoint</name>
+            <value>minio.nas.reinthal.me</value>
+          </property>
+          <property>
+            <name>fs.s3a.path.style.access</name>
+            <value>true</value>
+          </property>
+          <property>
+            <name>dremio.s3.compat</name>
+            <value>true</value>
+          </property>
