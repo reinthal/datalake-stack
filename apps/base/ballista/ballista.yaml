@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ballista-scheduler
-          image: reinthal/datafusion-ballista-scheduler:43.0.0
+          image: reinthal/arrow-ballista-scheduler:43.0.0
           args: ["--bind-port=50050"]
           ports:
             - containerPort: 50050
@@ -70,7 +70,7 @@ spec:
     spec:
       containers:
         - name: ballista-executor
-          image: reinthal/datafusion-ballista-executor:43.0.0
+          image: reinthal/arrow-ballista-executor:43.0.0
           args:
             - "--bind-port=50051"
             - "--scheduler-host=ballista-scheduler"
