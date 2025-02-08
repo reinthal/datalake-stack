@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ballista-scheduler
+  labels:
+    app: ballista-scheduler
+spec:
+  ports:
+    - port: 50050
+      name: scheduler
+    - port: 80
+      name: scheduler-ui
+  selector:
+    app: ballista-scheduler
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ballista-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ballista-scheduler
+  template:
+    metadata:
+      labels:
+        app: ballista-scheduler
+        ballista-cluster: ballista
+    spec:
+      containers:
+        - name: ballista-scheduler
+          image: reinthal/datafusion-ballista-scheduler:43.0.0
+          args: ["--bind-port=50050"]
+          ports:
+            - containerPort: 50050
+              name: flight
+          volumeMounts:
+            - mountPath: /mnt
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: data-pv-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ballista-executor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ballista-executor
+  template:
+    metadata:
+      labels:
+        app: ballista-executor
+        ballista-cluster: ballista
+    spec:
+      containers:
+        - name: ballista-executor
+          image: reinthal/datafusion-ballista-executor:43.0.0
+          args:
+            - "--bind-port=50051"
+            - "--scheduler-host=ballista-scheduler"
+            - "--scheduler-port=50050"
+          ports:
+            - containerPort: 50051
+              name: flight
+          volumeMounts:
+            - mountPath: /mnt
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: data-pv-claim
