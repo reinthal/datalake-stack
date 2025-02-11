@@ -29,7 +29,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: alexander.reinthal@knowit.se
     privateKeySecretRef:
-      name: letsencrypt
+      name: letsencrypt-datadrivet-dev
     solvers:
       - dns01:
           cloudflare:
