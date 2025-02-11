@@ -26,7 +26,7 @@ metadata:
   name: letsencrypt-dns-datadrivet-dev
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: alexander.reinthal@knowit.se
     privateKeySecretRef:
       name: letsencrypt-dns-datadrivet-dev
