@@ -133,6 +133,12 @@ spec:
   values:
     tenant:
       name: reinthal
+      exposeServices:
+        minio: true
+        console: true
+      metrics:
+        enabled: true
+        port: 9000
       features:
         enableSFTP: false
         domains:

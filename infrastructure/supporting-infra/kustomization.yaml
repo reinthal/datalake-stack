@@ -10,5 +10,5 @@ resources:
   - keycloak-auth-ingress.yaml
   - keycloak-secret-sealed.yaml
   # minio
-  - minio.yaml
-  - minio-tenant-config-secret-sealed.yaml
+  #- minio.yaml
+  #- minio-tenant-config-secret-sealed.yaml
