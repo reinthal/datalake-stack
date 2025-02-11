@@ -141,6 +141,30 @@ spec:
             - https://minio.platform.datadrivet.dev
       configuration:
           name: testminio-env-configuration
+      configSecret:
+        existingSecret: true
+      pools:
+        - servers: 2
+          name: pool-0
+          volumesPerServer: 2
+          size: 100Gi
+          storageClassName: longhorn-local
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            fsGroupChangePolicy: "OnRootMismatch"
+            runAsNonRoot: true
+          containerSecurityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            seccompProfile:
+              type: RuntimeDefault
 
     ingress:
       api:
