@@ -142,7 +142,7 @@ spec:
       configuration:
           name: testminio-env-configuration
       configSecret:
-        existingSecret: true
+        existingSecret: false
       pools:
         - servers: 2
           name: pool-0
