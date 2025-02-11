@@ -87,7 +87,7 @@ spec:
   chart:
     spec:
       chart: operator
-      version: 5.0.15
+      version: 7.0.0
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
@@ -101,16 +101,14 @@ spec:
   targetNamespace: minio
 
   values:
-    env:
-      - name: CLUSTER_DOMAIN
-        value: "platform.datadrivet.dev"
-      - name: OPERATOR_STS_ENABLED
-        value: "on"
-      - name: MINIO_CONSOLE_TLS_ENABLE
-        value: "off"
-
-    ingress:
-      enabled: false
+    operator:
+      env:
+        - name: CLUSTER_DOMAIN
+          value: "platform.datadrivet.dev"
+        - name: OPERATOR_STS_ENABLED
+          value: "on"
+        - name: MINIO_CONSOLE_TLS_ENABLE
+          value: "off"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -126,24 +124,22 @@ spec:
         kind: HelmRepository
         name: minio-operator
         namespace: flux-system
-      version: 5.0.15
+      version: 7.0.0
   install:
     createNamespace: true
   interval: 360m0s
   releaseName: minio-tenant
   targetNamespace: minio
   values:
-    secrets: {}
-
     tenant:
       name: reinthal
       features:
-        enableSFTP: true
+        enableSFTP: false
         domains:
           console: https://minio-console.platform.datadrivet.dev
           minio:
             - https://minio.platform.datadrivet.dev
-      configuration:
+      configSecret:
         name: minio-tenant-config-secret
         existingSecret: true
 
