@@ -145,15 +145,15 @@ spec:
           console: https://minio-console.platform.datadrivet.dev
           minio:
             - https://minio.platform.datadrivet.dev
+      configuration:
+        name: minio-tenant-config-secret
       configSecret:
-        accessKey: minio
-        secretKey: 28c80b379c75242c6fe793dfbf212f43c602140a0de5ebe3d9c2a3a7b9f9f983
-        existingSecret: false
+        existingSecret: true
       pools:
-        - servers: 2
+        - servers: 4
           name: pool-0
-          volumesPerServer: 2
-          size: 100Gi
+          volumesPerServer: 1
+          size: 50Gi
           storageClassName: longhorn-local
           securityContext:
             runAsUser: 1000
