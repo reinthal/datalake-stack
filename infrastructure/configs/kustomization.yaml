@@ -4,6 +4,7 @@ resources:
   - cluster-issuers.yaml
   - allow-ingress-sealed-secrets.yaml
   - cloudflare-token-secret-sealed.yaml
+  - cloudflare-token-secret-datadrivet-dev-sealed.yaml
   - ghcr-secret-sealed.yaml
   - image-repos.yaml
   - image-update-automation.yaml

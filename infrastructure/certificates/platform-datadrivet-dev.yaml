@@ -2,18 +2,18 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: local-reinthal-me
+  name: platform-datadrivet-dev
   namespace: default
 spec:
   secretTemplate:
     annotations:
       reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
       reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
-  secretName: local-reinthal-me-tls
+  secretName: platform-datadrivet-dev-tls
   issuerRef:
-    name: letsencrypt-http
+    name: letsencrypt
     kind: ClusterIssuer
-  commonName: "*.local.reinthal.me"
+  commonName: "*.platform.datadrivet.dev"
   dnsNames:
-    - "local.reinthal.me"
-    - "*.local.reinthal.me"
+    - "platform.datadrivet.dev"
+    - "*.platform.datadrivet.dev"
