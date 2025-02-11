@@ -31,8 +31,8 @@ spec:
   buffering:
     maxRequestBodyBytes: 50000000 # 50mb
     maxResponseBodyBytes: 50000000
-    memRequestBodyBytes:  50000000
-    memResponseBodyBytes:  50000000
+    memRequestBodyBytes: 50000000
+    memResponseBodyBytes: 50000000
     retryExpression: IsNetworkError() && Attempts() <= 2
 ---
 apiVersion: traefik.io/v1alpha1
@@ -56,8 +56,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-
-    - match: Host(`minio-operator.local.reinthal.cc`)
+    - match: Host(`minio-operator.local.reinthal.me`)
       kind: Rule
       middlewares:
         - name: body-size-headers
@@ -68,7 +67,7 @@ spec:
         - name: console
           port: 9090
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -85,7 +84,6 @@ metadata:
   name: minio-operator
   namespace: flux-system
 spec:
-
   chart:
     spec:
       chart: operator
@@ -103,14 +101,13 @@ spec:
   targetNamespace: minio
 
   values:
-
     env:
-    - name: CLUSTER_DOMAIN
-      value: "local.reinthal.cc"
-    - name: OPERATOR_STS_ENABLED
-      value: "on"
-    - name: MINIO_CONSOLE_TLS_ENABLE
-      value: "off"
+      - name: CLUSTER_DOMAIN
+        value: "local.reinthal.me"
+      - name: OPERATOR_STS_ENABLED
+        value: "on"
+      - name: MINIO_CONSOLE_TLS_ENABLE
+        value: "off"
 
     ingress:
       enabled: false
@@ -136,7 +133,6 @@ spec:
   releaseName: minio-tenant
   targetNamespace: minio
   values:
-
     secrets: {}
 
     tenant:
@@ -144,38 +140,36 @@ spec:
       features:
         enableSFTP: true
         domains:
-          console: https://minio-console.local.reinthal.cc
+          console: https://minio-console.local.reinthal.me
           minio:
-          - https://minio.local.reinthal.cc
+            - https://minio.local.reinthal.me
       configuration:
         name: minio-tenant-config-secret
         existingSecret: true
 
-
     ingress:
-
       api:
         annotations:
           traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
         enabled: true
-        host: minio.local.reinthal.cc
+        host: minio.local.reinthal.me
         path: /
         pathType: Prefix
         tls:
-        - hosts:
-          - minio.local.reinthal.cc
-          secretName: local-reinthal-cc-tls
+          - hosts:
+              - minio.local.reinthal.me
+            secretName: local-reinthal-me-tls
 
       console:
         annotations:
           traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd, minio-websockets-enabled@kubernetescrd
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
         enabled: true
-        host: minio-console.local.reinthal.cc
+        host: minio-console.local.reinthal.me
         path: /
         pathType: Prefix
         tls:
-        - hosts:
-          - minio-console.local.reinthal.cc
-          secretName: local-reinthal-cc-tls
+          - hosts:
+              - minio-console.local.reinthal.me
+            secretName: local-reinthal-me-tls
