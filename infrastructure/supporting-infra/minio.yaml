@@ -139,9 +139,8 @@ spec:
           console: https://minio-console.platform.datadrivet.dev
           minio:
             - https://minio.platform.datadrivet.dev
-      configSecret:
-        name: minio-tenant-config-secret
-        existingSecret: true
+      configuration:
+          name: testminio-env-configuration
 
     ingress:
       api:
