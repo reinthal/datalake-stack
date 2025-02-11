@@ -73,7 +73,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: minio-operator
-  namespace: flux-system
+  namespace: minio
 spec:
   interval: 360m0s
   url: https://operator.min.io
@@ -82,7 +82,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: minio-operator
-  namespace: flux-system
+  namespace: minio
 spec:
   chart:
     spec:
@@ -92,7 +92,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio-operator
-        namespace: flux-system
+        namespace: minio
 
   install:
     createNamespace: true
@@ -114,7 +114,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: minio-tenant
-  namespace: flux-system
+  namespace: minio
 spec:
   chart:
     spec:
@@ -123,7 +123,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio-operator
-        namespace: flux-system
+        namespace: minio
       version: 7.0.0
   install:
     createNamespace: true
@@ -145,9 +145,9 @@ spec:
           console: https://minio-console.platform.datadrivet.dev
           minio:
             - https://minio.platform.datadrivet.dev
-      configuration:
-          name: testminio-env-configuration
       configSecret:
+        accessKey: minio
+        secretKey: 28c80b379c75242c6fe793dfbf212f43c602140a0de5ebe3d9c2a3a7b9f9f983
         existingSecret: false
       pools:
         - servers: 2
