@@ -27,4 +27,7 @@ spec:
   values:
     singleuser:
       serviceAccountName: spark-operator-spark
+    prePuller:
+      extraImages: jupyter/all-spark-notebook
+      tag: latest
 
