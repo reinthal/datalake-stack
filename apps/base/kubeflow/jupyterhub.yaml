@@ -38,8 +38,4 @@ spec:
           description: "Data Eningeering environment."
           kubespawner_override:
             image: jupyter/pyspark:spark-3.1.1
-    prePuller:
-      spark-notebook:
-        extraImages: jupyter/pyspark-notebook
-        tag: spark-3.1.1
 
