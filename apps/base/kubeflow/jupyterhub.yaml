@@ -37,5 +37,5 @@ spec:
         - display_name: "Datascience environment"
           description: "An environment with lots of stuff python R Julia."
           kubespawner_override:
-            image: jupyter/datascience-notebook:98c2b44b4e44
+            image: jupyter/datascience-notebook:latest
 
