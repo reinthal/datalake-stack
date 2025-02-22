@@ -28,7 +28,7 @@ spec:
     singleuser:
       serviceAccountName: spark-operator-spark
       image:
-        name: jupyter/pyspark
+        name: jupyter/pyspark-notebook
         tag: spark-3.1.1
       profileList:
         - display_name: "Pyspark Environment"
