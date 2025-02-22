@@ -17,7 +17,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: jupyter
+      chart: jupyterhub
       version: "4.1.0"
       sourceRef:
         kind: HelmRepository
@@ -26,8 +26,5 @@ spec:
       interval: 24h
   values:
     singleuser:
-      image:
-        name: jupyter/jupyterhub
-        tag: latest
-    serviceAccountName: spark-operator-spark
+      serviceAccountName: spark-operator-spark
 
