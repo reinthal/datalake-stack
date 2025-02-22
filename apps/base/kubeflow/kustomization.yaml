@@ -4,6 +4,6 @@ namespace: kubeflow
 resources:
   - spark.yaml
   - meta.yaml
-  - pyspark.yaml
+  - jupyterhub.yaml
   # frontend
   #- ingress.yaml
