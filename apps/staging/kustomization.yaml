@@ -8,8 +8,8 @@ resources:
   #- ../base/ray
   - ../base/cyberchef
   - ../base/trino
-  - ../base/ballista
+  #- ../base/ballista
   #- ../base/elastic
-  #- ../base/kubeflow
+  - ../base/kubeflow
   - ../base/forgejo
   - ../base/dremio
