@@ -6,7 +6,7 @@ metadata:
   namespace: kubeflow
 spec:
   interval: 24h
-  url: https://jupyterhub.github.io/helm-chart/
+  url: https://hub.jupyter.org/helm-chart
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
@@ -18,7 +18,7 @@ spec:
   chart:
     spec:
       chart: jupyter
-      version: "2.0.0"
+      version: "4.1.0"
       sourceRef:
         kind: HelmRepository
         name: jupyter
@@ -27,7 +27,7 @@ spec:
   values:
     singleuser:
       image:
-        name: jupyter/pyspark-notebook
+        name: jupyter/jupyterhub
         tag: latest
     serviceAccountName: spark-operator-spark
 
