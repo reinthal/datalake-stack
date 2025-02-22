@@ -28,14 +28,14 @@ spec:
     singleuser:
       serviceAccountName: spark-operator-spark
       image:
-        name: jupyter/datascience-notebook
-        tag: 98c2b44b4e44
+        name: jupyter/pyspark
+        tag: spark-3.1.1
       profileList:
+        - display_name: "Pyspark Environment"
+          description: "Data Eningeering environment"
+          default: true
         - display_name: "Datascience environment"
           description: "An environment with lots of stuff python R Julia."
-          default: true
-        - display_name: "Pyspark Environment"
-          description: "Data Eningeering environment."
           kubespawner_override:
-            image: jupyter/pyspark:spark-3.1.1
+            image: jupyter/datascience-notebook:98c2b44b4e44
 
