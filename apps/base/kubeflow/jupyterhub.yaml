@@ -29,7 +29,7 @@ spec:
       serviceAccountName: spark-operator-spark
       image:
         name: jupyter/pyspark-notebook
-        tag: spark-3.5.2
+        tag: lab-3.5.2
       profileList:
         - display_name: "Pyspark Environment"
           description: "Data Eningeering environment"
