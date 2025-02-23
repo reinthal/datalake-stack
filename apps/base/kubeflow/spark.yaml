@@ -35,46 +35,49 @@ metadata:
   name: spark-operator-spark
   namespace: kubeflow
 ---
-# Grant all permissions over services, pods, persistentvolumeclaims, and configmaps in the namespace (kubeflow)
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: spark-operator-role
   namespace: kubeflow
+  name: spark-role
 rules:
-  - apiGroups: [""]
-    resources: ["services"]
-    verbs: ["*"]  # All permissions: create, delete, get, list, watch, update, patch
-  - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["*"]  # All permissions
-  - apiGroups: [""]
-    resources: ["persistentvolumeclaims"]
-    verbs: ["*"]  # All permissions
-  - apiGroups: [""]
-    resources: ["configmaps"]
-    verbs: ["*"]  # All permissions
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - configmaps
+  - persistentvolumeclaims
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
 ---
-# Bind the above Role to the spark-operator ServiceAccount
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: spark-operator-rolebinding
+  name: spark-role-binding
   namespace: kubeflow
 subjects:
-  - kind: ServiceAccount
-    name: spark-operator-spark
-    namespace: kubeflow
+- kind: ServiceAccount
+  name: spark-operator-spark
+  namespace: kubeflow
 roleRef:
   kind: Role
-  name: spark-operator-role
+  name: spark-role
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: sparkoperator.k8s.io/v1beta2
 kind: SparkApplication
 metadata:
   name: spark-pi-dynamic-allocation
-  namespace: default
+  namespace: kubeflow
 spec:
   type: Scala
   mode: cluster
