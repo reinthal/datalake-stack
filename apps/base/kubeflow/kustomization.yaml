@@ -4,4 +4,4 @@ namespace: kubeflow
 resources:
   - spark.yaml
   - meta.yaml
-  #- jupyterhub.yaml
+  - jupyterhub.yaml
