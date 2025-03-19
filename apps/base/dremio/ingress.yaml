@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`dremio.local.reinthal.cc`)
+    - match: Host(`dremio.local.reinthal.me`)
       kind: Rule
       services:
         - name: dremio-client

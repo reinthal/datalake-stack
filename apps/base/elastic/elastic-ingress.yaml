@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`elastic.local.reinthal.cc`)
+    - match: Host(`elastic.local.reinthal.me`)
       kind: Rule
       middlewares:
         - name: default-headers

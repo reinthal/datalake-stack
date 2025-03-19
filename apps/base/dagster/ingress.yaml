@@ -28,13 +28,13 @@ spec:
     - websecure
   routes:
     # OAuth2 Proxy routes
-    - match: Host(`dagster.local.reinthal.cc`) && PathPrefix(`/oauth2/`)
+    - match: Host(`dagster.local.reinthal.me`) && PathPrefix(`/oauth2/`)
       kind: Rule
       services:
         - name: oauth2-dagster-webui-proxy-oauth2-proxy
           port: 80
     # Dagster routes - now going through OAuth2 Proxy instead of directly to Dagster
-    - match: Host(`dagster.local.reinthal.cc`)
+    - match: Host(`dagster.local.reinthal.me`)
       kind: Rule
       services:
         - name: oauth2-dagster-webui-proxy-oauth2-proxy # Point to OAuth2 proxy instead of Dagster directly

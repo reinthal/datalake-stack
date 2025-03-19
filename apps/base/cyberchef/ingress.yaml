@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`cyberchef.local.reinthal.cc`)
+    - match: Host(`cyberchef.local.reinthal.me`)
       kind: Rule
       services:
         - name: cyberchef-service

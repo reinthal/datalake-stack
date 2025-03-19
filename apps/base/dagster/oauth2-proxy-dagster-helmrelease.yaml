@@ -33,8 +33,8 @@ spec:
     config:
       configFile: |-
         provider = "keycloak-oidc"
-        redirect_url = "https://dagster.local.reinthal.cc/oauth2/callback"
-        oidc_issuer_url = "https://keycloak.local.reinthal.cc/auth/realms/reinthal"
+        redirect_url = "https://dagster.local.reinthal.me/oauth2/callback"
+        oidc_issuer_url = "https://keycloak.local.reinthal.me/auth/realms/reinthal"
         email_domains = [ "reinthal.me" ]
         allowed_roles = [ "dagster-operator" ]
         code_challenge_method = "S256"

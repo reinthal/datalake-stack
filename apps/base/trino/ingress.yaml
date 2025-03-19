@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`trino.local.reinthal.cc`)
+    - match: Host(`trino.local.reinthal.me`)
       kind: Rule
       services:
         - name: trino-cluster-trino

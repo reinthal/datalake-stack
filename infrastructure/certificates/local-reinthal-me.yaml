@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: local-reinthal-me
+  namespace: default
+spec:
+  secretTemplate:
+      annotations:
+        reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+        reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+  secretName: local-reinthal-me-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  commonName: "*.local.reinthal.me"
+  dnsNames:
+  - "local.reinthal.me"
+  - "*.local.reinthal.me"

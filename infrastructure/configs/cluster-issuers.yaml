@@ -18,25 +18,5 @@ spec:
               key: token
         selector:
           dnsZones:
-            - "reinthal.cc"
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-dns-datadrivet-dev
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: alexander.reinthal@knowit.se
-    privateKeySecretRef:
-      name: letsencrypt-dns-datadrivet-dev
-    solvers:
-      - dns01:
-          cloudflare:
-            email: alexander.reinthal@knowit.se
-            apiTokenSecretRef:
-              name: cloudflare-token-secret-datadrivet-dev
-              key: token
-        selector:
-          dnsZones:
-            - "datadrivet.dev"
+            - "reinthal.me"
+

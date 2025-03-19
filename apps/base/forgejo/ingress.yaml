@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`forgejo.local.reinthal.cc`)
+    - match: Host(`forgejo.local.reinthal.me`)
       kind: Rule
       services:
         - name: forgejo

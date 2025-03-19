@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ray-operator.local.reinthal.cc`)
+    - match: Host(`ray-operator.local.reinthal.me`)
       kind: Rule
       services:
         - name: kuberay-operator
@@ -46,7 +46,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`ray-dash.local.reinthal.cc`)
+    - match: Host(`ray-dash.local.reinthal.me`)
       kind: Rule
       middlewares:
         - name: ray-dashboard-basicauth

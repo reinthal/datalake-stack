@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`keycloak.local.reinthal.cc`) && PathPrefix(`/auth`)
+    - match: Host(`keycloak.local.reinthal.me`) && PathPrefix(`/auth`)
       kind: Rule
       middlewares:
         - name: keycloak-headers
@@ -17,7 +17,7 @@ spec:
         - name: keycloak
           port:
             80
-            #- match: Host(`keycloak.local.reinthal.cc`) && Path(`/`)
+            #- match: Host(`keycloak.local.reinthal.me`) && Path(`/`)
             #  kind: Rule
             #redirect:
             # permanent: true

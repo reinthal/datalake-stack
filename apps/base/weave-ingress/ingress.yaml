@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`weave.local.reinthal.cc`)
+    - match: Host(`weave.local.reinthal.me`)
       kind: Rule
       middlewares:
         -   name: default-headers

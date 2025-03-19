@@ -50,7 +50,7 @@ spec:
         fs.native-s3.enabled=true
         iceberg.catalog.type=rest
         iceberg.rest-catalog.security=NONE
-        iceberg.rest-catalog.uri=https\://nessie.local.reinthal.cc/iceberg/
+        iceberg.rest-catalog.uri=https\://nessie.local.reinthal.me/iceberg/
         iceberg.rest-catalog.vended-credentials-enabled=false
         s3.endpoint=https\://minio.nas.reinthal.me
         s3.path-style-access=true

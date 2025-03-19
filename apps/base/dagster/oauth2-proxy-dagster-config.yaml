@@ -5,8 +5,8 @@ metadata:
   namespace: dagster
 data:
   OAUTH2_PROXY_PROVIDER: keycloak-oidc
-  OAUTH2_PROXY_REDIRECT_URL: https://dagster.local.reinthal.cc/oauth2/callback
-  OAUTH2_PROXY_OIDC_ISSUER_URL: https://keycloak.local.reinthal.cc/auth/realms/reinthal
+  OAUTH2_PROXY_REDIRECT_URL: https://dagster.local.reinthal.me/oauth2/callback
+  OAUTH2_PROXY_OIDC_ISSUER_URL: https://keycloak.local.reinthal.me/auth/realms/reinthal
   OAUTH2_PROXY_EMAIL_DOMAINS: reinthal.me
   OAUTH2_PROXY_ALLOWED_ROLES: dagster-operator
   OAUTH2_PROXY_CODE_CHALLENGE_METHOD: S256

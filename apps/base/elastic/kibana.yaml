@@ -18,7 +18,7 @@ spec:
               memory: 1Gi
               cpu: 1
   config:
-    server.publicBaseUrl: "https://kibana.local.reinthal.cc"
+    server.publicBaseUrl: "https://kibana.local.reinthal.me"
     xpack.fleet.agents.elasticsearch.hosts:
       ["https://elasticsearch-es-http.elastic-system.svc:9200"]
     xpack.fleet.agents.fleet_server.hosts:
