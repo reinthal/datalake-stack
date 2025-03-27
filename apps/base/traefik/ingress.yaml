@@ -18,4 +18,4 @@ spec:
         - name: api@internal
           kind: TraefikService
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

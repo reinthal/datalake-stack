@@ -16,4 +16,4 @@ spec:
         - name: forgejo
           port: 3000
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

@@ -15,4 +15,4 @@ spec:
         - name: nessie
           port: 19120
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

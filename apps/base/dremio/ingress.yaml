@@ -16,5 +16,5 @@ spec:
         - name: dremio-client
           port: 9047
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls
 ---

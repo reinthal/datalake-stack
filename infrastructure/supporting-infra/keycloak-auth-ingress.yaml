@@ -23,4 +23,4 @@ spec:
             # permanent: true
             #to: "/auth" # Redirect the root path to /auth
   tls:
-    secretName: local-reinthal-cc-tls # Your TLS secret for Keycloak
+    secretName: local-reinthal-me-tls # Your TLS secret for Keycloak

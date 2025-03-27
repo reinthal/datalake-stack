@@ -15,4 +15,4 @@ spec:
         - name: trino-cluster-trino
           port: 8080
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

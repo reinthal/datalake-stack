@@ -17,4 +17,4 @@ spec:
         - name: weave-gitops
           port: 9001
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

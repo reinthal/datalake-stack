@@ -19,4 +19,4 @@ spec:
         - name: elasticsearch-es-http
           port: 9200
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls

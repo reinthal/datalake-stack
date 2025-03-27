@@ -56,7 +56,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`minio-operator.platform.datadrivet.dev`)
+    - match: Host(`minio-operator.local.reinthal.me`)
       kind: Rule
       middlewares:
         - name: body-size-headers
@@ -67,7 +67,7 @@ spec:
         - name: console
           port: 9090
   tls:
-    secretName: platform-datadrivet-dev-tls
+    secretName: local-reinthal-me-tls
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -104,7 +104,7 @@ spec:
     operator:
       env:
         - name: CLUSTER_DOMAIN
-          value: "platform.datadrivet.dev"
+          value: "local.reinthal.me"
         - name: OPERATOR_STS_ENABLED
           value: "on"
         - name: MINIO_CONSOLE_TLS_ENABLE
@@ -142,9 +142,9 @@ spec:
       features:
         enableSFTP: false
         domains:
-          console: https://minio-console.platform.datadrivet.dev
+          console: https://minio-console.local.reinthal.me
           minio:
-            - https://minio.platform.datadrivet.dev
+            - https://minio.local.reinthal.me
       configuration:
         name: minio-tenant-config-secret
       configSecret:
@@ -178,23 +178,23 @@ spec:
           traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
         enabled: true
-        host: minio.platform.datadrivet.dev
+        host: minio.local.reinthal.me
         path: /
         pathType: Prefix
         tls:
           - hosts:
-              - minio.platform.datadrivet.dev
-            secretName: platform-datadrivet-dev-tls
+              - minio.local.reinthal.me
+            secretName: local-reinthal-me-tls
 
       console:
         annotations:
           traefik.ingress.kubernetes.io/router.middlewares: minio-body-size-headers@kubernetescrd, minio-websockets-enabled@kubernetescrd
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
         enabled: true
-        host: minio-console.platform.datadrivet.dev
+        host: minio-console.local.reinthal.me
         path: /
         pathType: Prefix
         tls:
           - hosts:
-              - minio-console.platform.datadrivet.dev
-            secretName: platform-datadrivet-dev-tls
+              - minio-console.local.reinthal.me
+            secretName: local-reinthal-me-tls

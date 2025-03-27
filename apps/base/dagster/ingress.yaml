@@ -40,5 +40,5 @@ spec:
         - name: oauth2-dagster-webui-proxy-oauth2-proxy # Point to OAuth2 proxy instead of Dagster directly
           port: 80
   tls:
-    secretName: local-reinthal-cc-tls
+    secretName: local-reinthal-me-tls
 ---
