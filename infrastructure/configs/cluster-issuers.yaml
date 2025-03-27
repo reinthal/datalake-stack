@@ -16,7 +16,6 @@ spec:
             apiTokenSecretRef:
               name: cloudflare-token-secret
               key: token
-            zoneID: d4c11a564a0082f24ed0b0afb66bcb37
         selector:
           dnsZones:
             - "reinthal.me"
