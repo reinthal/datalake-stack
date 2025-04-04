@@ -62,5 +62,5 @@ spec:
       - http-server.process-forwarded=true
       - http-server.process-forwarded=true
       - query.max-memory=24GB          # Total memory limit across all nodes
-      - query.max-memory-per-node=4GB # Per-node memory limit (less than JVM heap)
+      - query.max-memory-per-node=3GB # Per-node memory limit (less than JVM heap)
       - memory.heap-headroom-per-node=512MB # Headroom to prevent OOM errors
