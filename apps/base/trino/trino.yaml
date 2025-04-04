@@ -44,6 +44,9 @@ spec:
     worker:
       jvm:
         maxHeapSize: "4G"
+    service:
+      type: LoadBalancer
+      port: 8080
     catalogs:
       prod: |-
         connector.name=iceberg
