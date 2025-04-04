@@ -11,5 +11,5 @@ resources:
   #- ../base/ballista
   #- ../base/elastic
   - ../base/kubeflow
-  - ../base/forgejo
-  - ../base/dremio
+  #- ../base/forgejo
+  #- ../base/dremio

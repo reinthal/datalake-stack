@@ -60,3 +60,7 @@ spec:
         s3.region=us-east-1
     additionalConfigProperties:
       - http-server.process-forwarded=true
+      - http-server.process-forwarded=true
+      - query.max-memory=8GB          # Total memory limit across all nodes
+      - query.max-memory-per-node=3GB # Per-node memory limit (less than JVM heap)
+      - memory.heap-headroom-per-node=512MB # Headroom to prevent OOM errors
