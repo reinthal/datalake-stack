@@ -38,6 +38,9 @@ spec:
       tag: "464"
     server:
       workers: 6
+      config:
+        query:
+          maxMemory: "7GB"
     coordinator:
       jvm:
         maxHeapSize: "8G"
@@ -61,6 +64,6 @@ spec:
     additionalConfigProperties:
       - http-server.process-forwarded=true
       - http-server.process-forwarded=true
-      - query.max-memory=48GB  # Total memory limit across all nodes
+      - query.max-memory=44GB  # Total memory limit across all nodes
       - query.max-memory-per-node=7GB # Per-node memory limit (less than JVM heap)
       - memory.heap-headroom-per-node=512MB # Headroom to prevent OOM errors
